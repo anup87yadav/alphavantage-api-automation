@@ -1,0 +1,7 @@
+requests
+jsons
+ratelimit
+pytest
+pytest-html
+pytest-xdist
+allure-pytest
