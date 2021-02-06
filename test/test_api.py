@@ -62,6 +62,5 @@ class TestAPI:
         resp = requests.get("https://www.alphavantage.co/query", params=q)
         time.sleep(1)
         body = resp.json()
-        print(body["annualReports"][0]["reportedCurrency"])
         assert (body["annualReports"][0]["reportedCurrency"]) == "USD"
         assert (body["quarterlyReports"][0]["reportedCurrency"]) == "USD"
