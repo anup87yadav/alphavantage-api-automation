@@ -1,8 +1,11 @@
 # alphavantage-api-automation
 
 Clone the repository- git clone https://github.com/anup87yadav/alphavantage-api-automation.git
+
 Go to git repository path
+
 Run the command git pull origin
+
 Execute the command - pip install -r requirements.txt
 
 Export the project int IDE(PyCharm/IntelliJ) 
