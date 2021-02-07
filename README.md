@@ -1,19 +1,43 @@
 # alphavantage-api-automation
 
-Clone the repository- git clone https://github.com/anup87yadav/alphavantage-api-automation.git
+This API returns the annual and quarterly income statements for the company of interest. Data is generally refreshed on the same day a company reports its latest earnings and financials.
 
-Go to git repository path
+## Getting Started
 
-Run the command git pull origin
+Please follow below instruction for local setup of project and Test Cases
 
-Execute the command - pip install -r requirements.txt
+### Software Installing
+```
+Install Git 
+Install Python 3.x
+Install latest PyCharm Or any Supported IDE
+```
 
-Export the project int IDE(PyCharm/IntelliJ) 
+### GitHub and Project Setup
+```
+$ git clone https://github.com/anup87yadav/alphavantage-api-automation.git
+$ cd alphavantage-api-automation
+$ git pull origin
+$ pip install -r requirements.txt
+```
 
-Run command “pytest -v —capture sys test/test_api.py --html=report/report.html --self-contained-html” 
+### Running the tests
 
-Go to folder Report and open html report file in browser to see the run report
+Execute the beow commands to run test with console output
+```
+pytest -v --capture=no  test/test_api.py --html=report/report.html --self-contained-html
 
+```
 
-Manual Test case - under folder name-manualtestcase
+Execute the below commands without console output
+```
+pytest -v -s --capture sys test/test_api.py --html=report/report.html --self-contained-html
 
+```
+### Report
+
+Open /report/report.html as browser to see the test run status
+
+### Manual Test
+
+Manual Test case Available- under folder manualtestcase
