@@ -1,4 +1,4 @@
-from ratelimit import limits, RateLimitException, rate_limited, sleep_and_retry
+from ratelimit import limits, rate_limited, sleep_and_retry
 import time
 from test.test_base import TestBase
 
