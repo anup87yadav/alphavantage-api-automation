@@ -1,67 +1,88 @@
-import requests
-import logging
-from ratelimit import limits, RateLimitException, rate_limited
+from ratelimit import limits, RateLimitException, rate_limited, sleep_and_retry
 import time
+from test.test_base import TestBase
 
 
-class TestAPI:
-
+class TestAPI(TestBase):
     ONE_DAY = 3600 * 24
+    ONE_MINUTE = 60
 
     ''' Verify the response status code'''
+
+    @sleep_and_retry
     @rate_limited(calls=500, period=ONE_DAY)
-    def test_verifyStatusCode(self):
-        @rate_limited(calls=5, period=60)
-        def test_apicalltest():
-            try:
-                q = {"function": "INCOME_STATEMENT", "symbol": "IBM", "apikey": "apikey"}
-                resp = requests.get("https://www.alphavantage.co/query", params=q)
-                logging.info(resp)
-                if resp.status_code == 429:
-                    raise RateLimitException("too many calls", 60)
-                assert resp.status_code == 200, "not valid code"
-            except Exception as e:
-                print(e)
+    @sleep_and_retry
+    @rate_limited(calls=5, period=ONE_MINUTE)
+    def test_verifystatusCode(self):
+        self.resp = TestBase().apicall()
+        assert self.resp.status_code == 200, "not valid code"
+        # uncomment below line if you want to see output in console section
+        # print(self.resp.status_code)
 
     '''Verify the Response Content-Type'''
-    @limits(calls=5, period=60)
+
+    @sleep_and_retry
+    @rate_limited(calls=500, period=ONE_DAY)
+    @sleep_and_retry
+    @rate_limited(calls=5, period=ONE_MINUTE)
     def test_verifyheaders(self):
-        q = {"function": "INCOME_STATEMENT", "symbol": "IBM", "apikey": "apikey"}
-        resp = requests.get("https://www.alphavantage.co/query", params=q)
-        assert resp.headers.__contains__("Content-Type")
+        self.resp = TestBase().apicall()
+        # uncomment below line if you want to see output in console section
+        # print(self.resp.headers.get("Content-Type"))
+        assert self.resp.headers.__contains__("Content-Type")
 
     '''Verify the URL'''
-    @limits(calls=5, period=60)
-    def test_verifyurl(self):
 
-        q = {"function": "INCOME_STATEMENT", "symbol": "IBM", "apikey": "apikey"}
-        resp = requests.get("https://www.alphavantage.co/query", params=q)
-        print(resp.url)
+    @sleep_and_retry
+    @rate_limited(calls=500, period=ONE_DAY)
+    @sleep_and_retry
+    @rate_limited(calls=5, period=ONE_MINUTE)
+    def test_verifyurl(self):
+        self.resp = TestBase().apicall()
+        # uncomment below line if you want to see output in console section
+        # print(self.resp.url)
+        assert self.resp.url == "https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=IBM&apikey=apikey"
 
     '''Verify Response Time'''
-    @limits(calls=5, period=60)
+
+    @sleep_and_retry
+    @rate_limited(calls=500, period=ONE_DAY)
+    @sleep_and_retry
+    @rate_limited(calls=5, period=ONE_MINUTE)
     def test_verifyresponsetime(self):
-        q = {"function": "INCOME_STATEMENT", "symbol": "IBM", "apikey": "apikey"}
-        resp = requests.get("https://www.alphavantage.co/query", params=q)
-        assert resp.elapsed.total_seconds() < 200, "not valid time limit"
+        self.resp = TestBase().apicall()
+        # uncomment below line if you want to see output in console section
+        # print(self.resp.elapsed.total_seconds())
+        assert self.resp.elapsed.total_seconds() < 200, "not valid time limit"
 
     '''Verify the symbol value in response body'''
-    @limits(calls=5, period=60)
+
+    @sleep_and_retry
+    @limits(calls=500, period=ONE_DAY)
     def test_verifysymbolvalue(self):
-        q = {"function": "INCOME_STATEMENT", "symbol": "IBM", "apikey": "apikey"}
-        resp = requests.get("https://www.alphavantage.co/query", params=q)
+        self.resp = TestBase().apicall()
         time.sleep(1)
-        body = resp.json()
-        print(body["symbol"])
-        print(body)
+        body = self.resp.json()
+        # uncomment below line if you want to see output in console section
+        # print(body["symbol"])
         assert (body["symbol"]) == "IBM", "Not Found"
 
     '''Verify the reported Currency type in response body'''
-    @limits(calls=5, period=60)
+
+    @sleep_and_retry
+    @rate_limited(calls=500, period=ONE_DAY)
+    @sleep_and_retry
+    @rate_limited(calls=5, period=ONE_MINUTE)
     def test_verifyreportedcurrency(self):
-        q = {"function": "INCOME_STATEMENT", "symbol": "IBM", "apikey": "apikey"}
-        resp = requests.get("https://www.alphavantage.co/query", params=q)
-        time.sleep(1)
-        body = resp.json()
+        self.resp = TestBase().apicall()
+        time.sleep(5)
+        body = self.resp.json()
+
+        """ 
+        uncomment below line if you want to see output in console section
+        print(body["annualReports"][0]["reportedCurrency"])
+        print(body["quarterlyReports"][0]["reportedCurrency"])
+        """
+
         assert (body["annualReports"][0]["reportedCurrency"]) == "USD"
         assert (body["quarterlyReports"][0]["reportedCurrency"]) == "USD"
