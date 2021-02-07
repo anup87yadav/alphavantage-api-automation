@@ -429,7 +429,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 07-Feb-2021 at 17:00:10 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 07-Feb-2021 at 17:21:05 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -448,7 +448,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Tester</td>
         <td>Anup</td></tr></table>
     <h2>Summary</h2>
-    <p>6 tests ran in 13.39 seconds. </p>
+    <p>6 tests ran in 12.03 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">6 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -464,54 +464,60 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test/test_api.py::TestAPI::test_verifystatusCode</td>
-          <td class="col-duration">0.98</td>
+          <td class="col-duration">2.93</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:26 Status Code for Response is 200<br/></div></td></tr></tbody>
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:21 Request URL is https://www.alphavantage.co/query?function=INCOME_STATEMENT&amp;symbol=IBM&amp;apikey=apikey
+INFO     root:test_api.py:22 Response Status Code is 200<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test/test_api.py::TestAPI::test_verifyheaders</td>
-          <td class="col-duration">1.43</td>
+          <td class="col-duration">1.62</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:39 Header contains the Content-Type as application/json<br/></div></td></tr></tbody>
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:33 Request URL is https://www.alphavantage.co/query?function=INCOME_STATEMENT&amp;symbol=IBM&amp;apikey=apikey
+INFO     root:test_api.py:34 Response Header contains the Content-Type as application/json<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test/test_api.py::TestAPI::test_verifyurl</td>
-          <td class="col-duration">4.19</td>
+          <td class="col-duration">1.64</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:53 URL is https://www.alphavantage.co/query?function=INCOME_STATEMENT&amp;symbol=IBM&amp;apikey=apikey<br/></div></td></tr></tbody>
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:45 Request URL is https://www.alphavantage.co/query?function=INCOME_STATEMENT&amp;symbol=IBM&amp;apikey=apikey
+INFO     root:test_api.py:46 Response URL is https://www.alphavantage.co/query?function=INCOME_STATEMENT&amp;symbol=IBM&amp;apikey=apikey<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test/test_api.py::TestAPI::test_verifyresponsetime</td>
-          <td class="col-duration">1.94</td>
+          <td class="col-duration">1.80</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:65 Request Response time is 1.942646<br/></div></td></tr></tbody>
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:57 Request URL is https://www.alphavantage.co/query?function=INCOME_STATEMENT&amp;symbol=IBM&amp;apikey=apikey
+INFO     root:test_api.py:58 Request Response time is 1.618151<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test/test_api.py::TestAPI::test_verifysymbolvalue</td>
-          <td class="col-duration">2.66</td>
+          <td class="col-duration">1.64</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:78 Symbol value is IBM<br/></div></td></tr></tbody>
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:68 Request URL is https://www.alphavantage.co/query?function=INCOME_STATEMENT&amp;symbol=IBM&amp;apikey=apikey
+INFO     root:test_api.py:69 Response body for Symbol value is IBM<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test/test_api.py::TestAPI::test_verifyreportedcurrency</td>
-          <td class="col-duration">1.83</td>
+          <td class="col-duration">2.19</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:101 Symbol value is USD
-INFO     root:test_api.py:102 Symbol value is USD<br/></div></td></tr></tbody></table></body></html>
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_api.py:82 Request URL is https://www.alphavantage.co/query?function=INCOME_STATEMENT&amp;symbol=IBM&amp;apikey=apikey
+INFO     root:test_api.py:83 Response value for annualReport currency is USD
+INFO     root:test_api.py:84 Response value for quateredReport currency is USD<br/></div></td></tr></tbody></table></body></html>
